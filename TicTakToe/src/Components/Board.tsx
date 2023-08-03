@@ -4,9 +4,10 @@ import Square from './Square'
 
 
 
+
 const Board = () => {
     const [xIsNext, setXIsNext] = useState(true);
-    const [squares, setSquares] = useState(Array(9).fill(null));
+    const [squares, setSquares] = useState<string[]>(Array(9).fill(null));
 
     
     function handleClick(i: number) {
@@ -22,13 +23,21 @@ const Board = () => {
             nextSquares[i] = "O"
 
         }
-        
+      //  function getImage(){
+      //   if(nextSquares[i]=== "X"){
+      //     return <img src="./assets/TikTac.png" alt="" />
+      //   }
+      //   else if(nextSquares[i] === "O"){
+      //     return <img src="./assets/Toad.png" alt="" />
+      //   }
+      //  }
+      //   getImage();
         console.log(i)
         setSquares(nextSquares);
         setXIsNext(!xIsNext);
       }
 
-      function calculateWinner(squares: any[]) {
+      function calculateWinner(squares: string[]) {
         const lines = [
           [0, 1, 2],
           [3, 4, 5],
@@ -55,6 +64,8 @@ const Board = () => {
       else{
         status = 'Next player: ' + (xIsNext ? 'X' : 'O');
       }
+
+     
       
   return (
     <>

@@ -17,10 +17,10 @@ const Board = () => {
      }
         const nextSquares = squares.slice();
         if(xIsNext){
-            nextSquares[i] = "X";
+            nextSquares[i] = "Donkey";
         }
         else{
-            nextSquares[i] = "O"
+            nextSquares[i] = "Shrek"
 
         }
       //  function getImage(){
@@ -59,20 +59,27 @@ const Board = () => {
       const winner = calculateWinner(squares);
       let status;
       if(winner){
+
         status = 'Winner: ' + winner;
       }
       else{
-        status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+        status = 'Next player: ' + (xIsNext ? 'Donkey' : 'Shrek');
       }
 
      
       
   return (
     <>
-    <div className="row">
-        <div className="col">
-        <div className="status">{status}</div>
+    <div className="bg">
+      <audio autoPlay loop controls src="/Sound/allstar.mp3"></audio>
+      <div className="row">
+        <div className="col m-3">
+          <h1>Shrek-Tak-Toe</h1>
         </div>
+      <div className="col">
+        <div className="status m-3">{status}</div>
+      
+      
     </div>
     <div className="row">
         <div className="col">
@@ -101,6 +108,12 @@ const Board = () => {
         </div>
      
     </div>
+    </div>
+   
+      </div>
+
+    
+    
 
   
   </>

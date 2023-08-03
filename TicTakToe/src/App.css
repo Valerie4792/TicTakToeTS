@@ -1,24 +1,49 @@
 .square{
   margin-left: 5px;
-  background: #fff;
-  border: 1px solid #999;
+  background: #ffffff43;
+  border: 1px solid #999999a1;
   
   font-size: 24px;
   font-weight: bold;
-  line-height: 100px;
-  height: 100px;
+  line-height: 180px;
+  height: 180px;
   
   padding: 0;
   text-align: center;
-  width: 100px;
+  width: 180px;
 
   
 }
 .shrek{
-  height: 100px;
-  width: 100px;
+  height: 180px;
+  width:180px;
 }
 .donkey{
-  height: 100px;
-  width: 100px;
+  height: 180px;
+  width: 180px;
 }
+body{
+  background-image: url('./Images/shrekswamp.jpeg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  
+}
+h1{
+  font-family: fantasy;
+color: White;
+font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+.status{
+  font-family: fantasy;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+
+}
+

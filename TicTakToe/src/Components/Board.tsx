@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Square from "./Square";
 
 function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState<string[]>(Array(9).fill(null));
+  const [volume, setVolume] = useState(50); // Initialize volume state
 
   function handleClick(i: number) {
     if (squares[i] || calculateWinner(squares)) {
@@ -65,24 +66,59 @@ function Board() {
     setXIsNext(true);
   }
 
+  useEffect(() => {
+    const audio = document.getElementById("audioElement") as HTMLAudioElement;
+    const playButton = document.getElementById("playButton");
+  
+    if (audio && playButton) {
+      playButton.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+    }
+  
+    // ... rest of the useEffect ...
+  }, [volume]);
+  
+
   return (
     <>
       <div className="bg">
-        <audio autoPlay loop controls src="/Sound/allstar.mp3"></audio>
+    <button id="playButton" className="playbutton">Play</button>
+      <audio id="audioElement" autoPlay loop src="/Sound/allstar.mp3"></audio>
+
+      <div className="audio-controls">
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value={volume} // Bind the value of the slider to the volume state
+          className="slider"
+          id="myRange"
+          onChange={(e) => setVolume(Number(e.target.value))}
+        />
+        <p className="volume">Volume: {volume}</p>
+      </div>
+
+        {/* <audio autoPlay loop controls src="/Sound/allstar.mp3"></audio> */}
         <div className="row">
           <div className="col m-3">
             <h1>Shrek-Tak-Toe</h1>
           </div>
-      
+
           <div className="col">
             <div className="status m-3">{status}</div>
             {winner || squares.every((square) => square !== null) ? (
-              <button type="button"
-              className="playAgain" 
-              onClick={handlePlayAgain}
-            >
-              Play Again
-            </button>
+              <button
+                type="button"
+                className="playAgain"
+                onClick={handlePlayAgain}
+              >
+                Play Again
+              </button>
             ) : null}
           </div>
 

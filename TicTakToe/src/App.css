@@ -55,7 +55,25 @@ font-size: 40px;
   padding: 10px;
   font-family: fantasy;
   font-size: 20px;
+}
 
-  
+.audio-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.playbutton {
+  background-color: #04AA6D;
+  color: white;
+ border-radius: 5px;
+
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.playbutton:hover {
+  background-color: #04755d;
 }
 

@@ -20,10 +20,10 @@ const Square = ({value, onSquareClick}: SquareProps) => {
 
 function getImage(){
   if(value === 'Donkey'){
-    return <img className='donkey' src="/Images/donkey.png" alt="X" />;
+    return <img className='donkey' src="/Images/donkey.png" alt="Donkey" />;
   }
   else if(value ==='Shrek'){
-    return <img className='shrek' src="/Images/shrek.png" alt="O" />;
+    return <img className='shrek' src="/Images/shrek.png" alt="Shrek" />;
   }
   else{
     return null
